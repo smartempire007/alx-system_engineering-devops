@@ -789,7 +789,7 @@ sylvain@ubuntu$
 -   Directory:  `0x04-loops_conditions_and_parsing`
 -   File:  `102-lets_parse_apache_logs`
 
-Done?  Help  Check your code  Ask for a new correction  Get a sandbox  QA Review
+
 
 ### 14. Dig the data
 
