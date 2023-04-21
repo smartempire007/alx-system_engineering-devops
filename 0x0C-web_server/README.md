@@ -1,6 +1,9 @@
 # 0x0C. Web server
 
 
+
+
+
 ### Concepts
 
 _For this project, we expect you to look at this concept:_
@@ -32,7 +35,7 @@ sylvain@ubuntu
 
 ```
 
-
+=
 
 As you can tell, I am not using  `emacs`  to perform the task in my answer file. This exercise is aiming at training you on automating your work. If you can automate tasks that you do manually, you can then automate yourself out of repetitive tasks and focus your energy on something more interesting. For an  [SRE](https://intranet.alxswe.com/rltoken/9I0WufjKdW3TZA2EVrGnlQ "SRE"), that comes very handy when there are hundreds or thousands of servers to manage, the work cannot be only done manually. Note that the checker will execute your script as the  `root`  user, you do not need to use the  `sudo`  command.
 
@@ -68,6 +71,16 @@ Tips: to test your answer Bash script, feel free to reproduce the checker enviro
 -   `scp`
 -   `curl`
 
+## Learning Objectives
+
+At the end of this project, you are expected to be able to  [explain to anyone](https://intranet.alxswe.com/rltoken/EHyxcIwPtD2SzEGRKOnT3g "explain to anyone"),  **without the help of Google**:
+
+### General
+
+-   What is the main role of a web server
+-   What is a child process
+-   Why web servers usually have a parent process and child processes
+-   What are the main HTTP requests
 
 ### DNS
 
@@ -101,31 +114,15 @@ Tips: to test your answer Bash script, feel free to reproduce the checker enviro
 
 **Great!**  You've completed the quiz successfully! Keep going!  (Show quiz)
 
-## Your servers
 
-Name
-
-Username
-
-IP
-
-State
-
-148008-web-01
-
-`ubuntu`
-
-`35.153.226.149`
-
-running
-
-Actions  Toggle Dropdown
 
 ## Tasks
 
 ### 0. Transfer a file to your server
 
 mandatory
+
+
 
 Write a Bash script that transfers a file from our client to a server:
 
@@ -176,13 +173,15 @@ That is one way of publishing your website pages to your server.
 -   Directory:  `0x0C-web_server`
 -   File:  `0-transfer_file`
 
-Done?  Help  Check your code  Get a sandbox
+
 
 ### 1. Install nginx web server
 
 mandatory
 
-![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/01cab59e881e31842b8d47a0974e8d3b6f0f2001.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230328%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230328T191137Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=b92a6dcf5213f217e8b85e63c149f38054ac6d02317a8ed728c33b74038ce11e)
+
+
+![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/01cab59e881e31842b8d47a0974e8d3b6f0f2001.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230417%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230417T223857Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=e4233505f48f518b07973325491e431ecc767eac858214e918a02b8fd699b165)
 
 Readme:
 
@@ -209,6 +208,7 @@ Hello World!
 root@sy-web-01$ 
 
 ```
+
 
 
 Local terminal:
@@ -243,11 +243,13 @@ If things are not going as expected, make sure to check out Nginx logs, they can
 -   Directory:  `0x0C-web_server`
 -   File:  `1-install_nginx_web_server`
 
-
+Done!  Help  Check your code  QA Review
 
 ### 2. Setup a domain name
 
 mandatory
+
+
 
 [.TECH Domains](https://intranet.alxswe.com/rltoken/Hcb-pfK8UiDBfwsDJPyZZw ".TECH Domains")  is one of the top domain providers. They are known for the stability and quality of their DNS hosting solution. We partnered with .TECH Domains so that you can learn about DNS.
 
@@ -308,6 +310,8 @@ When your domain name is setup, please verify the Registrar here:  [https://whoi
 
 mandatory
 
+
+
 Readme:
 
 -   [Replace a line with multiple lines with sed](https://intranet.alxswe.com/rltoken/RRP9hX3MlQdABaKZD-Y_cA "Replace a line with multiple lines with sed")
@@ -350,6 +354,8 @@ sylvain@ubuntu$
 
 mandatory
 
+
+
 Configure your Nginx server to have a custom 404 page that contains the string  `Ceci n'est pas une page`.
 
 Requirements:
@@ -385,11 +391,13 @@ sylvain@ubuntu$
 -   Directory:  `0x0C-web_server`
 -   File:  `4-not_found_page_404`
 
-Done?  Help  Check your code  Get a sandbox
+
 
 ### 5. Install Nginx web server (w/ Puppet)
 
 #advanced
+
+
 
 Time to practice configuring your server with Puppet! Just as you did before, we’d like you to install and configure an Nginx server using Puppet instead of Bash. To save time and effort, you should also include resources in your manifest to perform a 301 redirect when querying /redirect_me.
 
@@ -407,3 +415,72 @@ Requirements:
 -   File:  `7-puppet_install_nginx_web_server.pp`
 
 
+
+
+## Web server
+
+A web server is a computer program or application that responds to
+requests made by web browsers or clients and serves them with web
+content over the internet. In simpler terms, it is a computer or a
+piece of software that runs on a computer that hosts and delivers
+web pages, images, videos, and other web-based content to users
+who request it through their web browsers.
+
+When a user types a website URL into their browser, the request is
+sent to the web server that hosts the website. The web server then
+retrieves the requested files and sends them back to the user's
+browser, which displays the content on the user's device.
+
+Some of the popular web servers include Apache HTTP Server,
+Nginx, Microsoft IIS, and Google Web Server.
+
+In this section, how to setup and configure nginx will be explored.
+
+
+### SCP (Secure Copy)
+
+SCP (Secure Copy) is a command-line tool used for securely transferring
+files between two remote hosts over a secure shell (SSH) protocol. It is
+a way of copying files and directories between two computers on a network.
+
+To use SCP, you need to have SSH access to the remote host, and the remote
+host must also have an SSH server running. The syntax for using SCP is as
+follows:
+
+```
+$ scp [options] [source] [destination]
+```
+
+Here's a breakdown of the different parts of the command:
+
+- `[options]`: This is an optional parameter that specifies any additional
+options you want to use with the SCP command. Some commonly used options
+include `-r` (recursively copy directories), `-P` (specify a non-default
+SSH port), and -v (verbose output).
+
+- `[source]`: This is the file or directory that you want to copy. It can
+be a local file or a remote file specified in the format
+`user@remote_host:/path/to/file`.
+
+- `[destination]`: This is the location where you want to copy the file to.
+It can be a local directory or a remote directory specified in the format
+`user@remote_host:/path/to/destination`.
+
+Here's an example command that copies a file named `example.txt` from the
+local machine to a remote server:
+
+```
+$ scp example.txt username@remote_host:/path/to/destination
+```
+
+And here's an example command that copies a directory named `myfolder`
+from the remote server to the local machine:
+
+```
+$ scp -r username@remote_host:/path/to/myfolder /path/to/local/destination
+```
+
+> Note that when copying files or directories between remote hosts, you
+will need to use the -3 option to route the transfer through your
+local machine. Overall, SCP is a simple and secure way to transfer files
+between hosts.
