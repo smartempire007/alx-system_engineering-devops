@@ -18,5 +18,5 @@ file_line { 'add_header':
 }
 
 exec { 'restart-nginx':
-  command => '/etc/init.d/nginx restart',
+  command => 'service nginx restart',
 }
