@@ -41,11 +41,11 @@ frontend smartempire-frontend
         default_backend smartempire-backend
 
 frontend smartempire-frontend-https
-        bind *:443 ssl crt /etc/haproxy/certs/holb20233ak3os.tech.pem
+        bind *:443 ssl crt /etc/haproxy/certs/www.holb20233ak3os.tech.pem
         http-request set-header X-Forwarded-Proto https
         default_backend smartempire-backend
 
 backend smartempire-backend
         balance roundrobin
         server 148008-web-01 100.25.37.22:80 check
-        server 148008-web-01 18.234.130.143:80 check
+        server 148008-web-02 18.234.130.143:80 check
