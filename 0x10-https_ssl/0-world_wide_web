@@ -2,16 +2,20 @@
 # write a Bash script that will display information about the subdomains
 # print domains and subdomains
 
-print_dns_config () {
-    dig "$1" | grep -A1 'ANSWER SECTION:' | sed -r "s/$1./$2/g" | awk -F" " ' NR==2 { print "The subdomain " $1 " is a " $4 " record and points to " $5 }'
+audit() {  # audits domain passed as argument
+	dig $1.$2 +noall +answer > .tmp
+	awk -v var="$1" '{ print "The subdomain " var " is a " $4 " record and points to " $5 }' .tmp
+	rm .tmp
 }
 
-if [ "$#" -eq 2 ]
+if [ "$#" == 1 ]  # if subdomain is not defined
 then
-    print_domain_subdomain "$2.$1" "$2"
-else
-    print_domain_subdomain "www.$1" "www"
-    print_domain_subdomain "lb-01.$1" "lb-01"
-    print_domain_subdomain "web-01.$1" "web-01"
-    print_domain_subdomain "web-02.$1" "web-02"
+	subdomains=("www" "lb-01" "web-01" "web-02")
+	for sub in "${subdomains[@]}"
+	do
+		audit $sub "$1"
+	done
+elif [ "$#" == 2 ]
+then
+	audit "$2" "$1"
 fi
