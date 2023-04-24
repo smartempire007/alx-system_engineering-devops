@@ -37,10 +37,10 @@ defaults
   timeout connect 10s
   timeout server 15s
   timeout http-request 10s
-frontend clickviral-tech-frontend
+frontend smartempire-frontend
     bind *:80
-    default_backend clickviral-tech-backend
-backend clickviral-tech-backend
+    default_backend smartempire-tech-backend
+backend smartempire-backend
     balance roundrobin
     server 148008-web-01 100.25.37.22:80 check
     server 148008-web-02 18.234.130.143:80 check
