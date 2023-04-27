@@ -1,0 +1,19 @@
+#after runing alll the commands in 0-block_all_incoming_traffic_but file 
+#then run this command
+sudo vi /etc/ufw/before.rules
+
+#when u run the above command it  open in vim add this port_forwarding rules above *filter
+# NAT table rules
+# port forwarding with ufw from :8080 to :80
+*nat
+:POSTROUTING ACCEPT [0:0]
+-A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
+COMMIT
+
+#after adding the above rules to /etc/ufw/before.rule 
+#then run the below command to uncomment net. ipv4. ip_forward=1
+sudo vi /etc/sysctl.conf
+
+# save after editing sysctl.conf file 
+#run the bellow command to reload sysctl
+sudo systctl -p
